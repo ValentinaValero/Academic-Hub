@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Inicial Escolar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  /*Apartir daqui Navbar*/
+    header {
+      background: linear-gradient(to right, #8a0fdc, #c6d42a);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      justify-content: space-between;
+      color: white;
+  }
+
+    header .icons i {
+      width: 24px;
+      margin: 0 10px;
+      cursor: pointer;
+  }
+
+    header .icons{
+      margin-right: 80px;
+      margin-left: 20px;
+  }
+
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+  }
+
+    .search-bar input {
+      width: 80%;
+      padding: 5px;
+  } 
+
+  .logo{/*Configuracoes da logo*/
+      font-family: 'Jaro', sans-serif;
+      font-size: 40px;
+      padding-left: 30px;
+}
+
+    .hamburger-btn {/* Botão de 3 riscos*/
+      position: absolute;
+      top: 17px;
+      right: 40px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      cursor: pointer;
+}
+
+    .hamburger-btn .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #272b64;
+      margin: 5px 0;
+      transition: 0.3s;
+}
+
+    .menu-lateral {/* Menu que aparece ao clicar no botao de 3 riscos */
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #520a81;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+}
+
+    .menu-lateral a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .menu-lateral a:hover {
+      background-color: #340752;
+}
+
+
+    .overlay {/*Fundo escurecido desse menu*/
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 999;
+}
+
+    .overlay.show {
+      display: block;
+}
+        
+    
+
+   
+
+    .botoesDeRedirecionamento {/*Botões de redirecionamento para disciplinas, alunos e professores*/
+      display: flex;
+      justify-content: center; /* Centraliza os botões */
+      gap: 20px; /* Espaçamento entre eles */
+      margin-top: 50px;
+      margin-bottom: 30px;
+}
+
+    .botoesDeRedirecionamento button {
+      background-color: #520a81;
+      width: 150px;
+      height: 40px;
+      font-size: 20px;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+}
+
+    .container {/*Container onde vão todos os blocos de matérias*/
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; 
+      padding: 30px;
+      padding-top: 10px;
+
+    }
+
+    .card {/*Card, blocos com as materias e a seguir todas as suas configurações*/
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      margin: 15px;
+      width: 300px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease;
+      overflow: hidden;
+      
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #e8eaf6;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 50%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-content {/*Css para fazer aquela metade branca para colocar título da matéria*/
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .card-content h2 { /*Configurações para os títulos dos cards*/
+      margin: 0;
+      font-size: 22px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+        <div class="logo">AcademicHub</div>
+          <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+          </div>
+          <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+          </div>
+          <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+          </div>
+
+
+          <!--Botão de 3 riscos-->
+          <button class="hamburger-btn" onclick="openMenuLateral()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          </button>
+
+          <!--Menu do botão de 3 riscos-->
+          <div class="menu-lateral" id="menuLateral">
+            <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+            <a href="noticias.html">Notícias</a>
+            <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+            <a href="reclameAqui.html">Reclame Aqui</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="alunosDestaque.html">Alunos Destaque</a>
+            <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+            <a href="creditos.html">Créditos</a>
+          </div>
+
+          <!--Fundo escurecido-->
+          <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+
+  </header>
+
+  
+  <!--Botões de redirecionamento-->
+  <div class="botoesDeRedirecionamento">
+    <a href="./RedirecionamentoMaterias.html"><button>Disciplinas</button></a>
+    <a href="alunos.html"><button>Alunos</button></a>
+    <a href="professores.html"><button>Professores</button></a>
+  </div>
+
+  <!--Como já dito, container que contem os cards e os próprios cards em si com seus títulos e imagens-->
+  <div class="container">
+    <a class="card" href="matematica.html">
+      <div class="card-image" style="background-image: url('https://img.freepik.com/fotos-gratis/quadro-negro-inscrito-com-formulas-e-calculos-cientificos_1150-19413.jpg');"></div>
+      <div class="card-content">
+        <h2>Matemática</h2>
+      </div>
+    </a>
+    <a class="card" href="portugues.html">
+      <div class="card-image" style="background-image: url('https://escolaseb.com.br/wp-content/uploads/2016/06/O-que-e%CC%81-uma-sala-de-aula-atrativa.jpg');"></div>
+      <div class="card-content">
+        <h2>Português</h2>
+      </div>
+    </a>
+   
+    <a class="card" href="historia.html">
+      <div class="card-image" style="background-image: url('https://i0.wp.com/blog.portaleducacao.com.br/wp-content/uploads/2022/02/184-Historia-do-Brasil-em-ordem-cronologica.jpg?fit=740%2C416&ssl=1');"></div>
+      <div class="card-content">
+        <h2>História</h2>
+      </div>
+    </a>
+    <a class="card" href="geografia.html">
+      <div class="card-image" style="background-image: url('https://institucional.upis.br/blog/wp-content/uploads/2019/12/para-que-serve-a-geografia-entenda-o-que-e-estudado-sua-importancia.jpg');"></div>
+      <div class="card-content">
+        <h2>Geografia</h2>
+      </div>
+    </a>
+
+   <a class="card" href="projetoDeVida.html">
+      <div class="card-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1u_njJQqRf4x0_ptxEpIufI0bERu3i-PpCQ&s');"></div>
+      <div class="card-content">
+        <h2>Projeto de Vida</h2>
+      </div>
+    </a>
+
+   <a class="card" href="sociologia.html">
+      <div class="card-image" style="background-image: url('https://editoraunesp.com.br/blog/icone/para-refletir-sobre-a-importancia-da-sociologia-');"></div>
+      <div class="card-content">
+        <h2>Sociologia</h2>
+      </div>
+    </a>
+
+   <a class="card" href="programaçao.html">
+      <div class="card-image" style="background-image: url('https://idocode.com.br/wp-content/uploads/2021/07/programacao-scaled.jpg');"></div>
+      <div class="card-content">
+        <h2>Programação</h2>
+      </div>
+    </a>
+
+   <a class="card" href="quimica.html">
+      <div class="card-image" style="background-image: url('https://blog.forlabexpress.com.br/wp-content/uploads/2022/10/reagentes-quimicos-para-laboratorio-imagem-destacada.jpg');"></div>
+      <div class="card-content">
+        <h2>Química</h2>
+      </div>
+    </a>
+
+   <a class="card" href="ingles.html">
+      <div class="card-image" style="background-image: url('https://www.escolaobpc.com.br/wp-content/uploads/2023/07/ESTRUTURA_Sala-tematica-Ingles-1.jpg');"></div>
+      <div class="card-content">
+        <h2>Inglês</h2>
+      </div>
+   </a>
+
+     <a class="card" href="biologia.html">
+      <div class="card-image" style="background-image: url('https://www.escolaobpc.com.br/wp-content/uploads/2023/07/ESTRUTURA_Sala-tematica-Ingles-1.jpg');"></div>
+      <div class="card-content">
+        <h2>Biologia</h2>
+      </div>
+    </a>
+
+  </div>
+
+  
+  <script>
+    //Código do Java script para abrir e fechar o menu lateral do botão de 3 riscos
+    function openMenuLateral() {
+      document.getElementById("menuLateral").style.width = "250px";
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeMenuLateral2() {
+      document.getElementById("menuLateral").style.width = "0";
+      document.getElementById("overlay").classList.remove("show");
+    }
+  </script>
+
+
+</body>
+</html>

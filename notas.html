@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Escolar Interativo</title>
+    <!--Fonte jaro para a logo do academic hub e biblioteca para os icones da Navbar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+
+  <style>
+   body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ececec;
+    }
+
+     /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+            margin-bottom: 5%;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /*Configurações da página mesmo*/
+
+        .fundoDasMaterias{
+            background-color: #cfcfcf;
+            height: 700px auto;
+            width: 800px;
+            border-radius: 30px;
+            text-align: center;
+            margin-left: 20%;
+            margin-bottom: 5%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            
+            
+        }
+
+        .titulo{
+            margin-bottom:5%;
+            padding-top: 5%;
+        }
+
+    .materia {
+      background: #511a71;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      width: 70%;
+      margin-top: 20px;
+      margin-left: 12%;
+      
+      
+    }
+
+    .conteudo {
+      display: none;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 70%;
+      margin-left: 12%;
+    }
+
+    .grades {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .grade, .absences {
+      text-align: center;
+      flex: 1;
+    }
+
+    .grade span, .absences span {
+      display: block;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .grade strong, .absences strong {
+      font-size: 18px;
+      color: #007bff;
+    }
+
+    .frequency {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .frequency div {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .green {
+      color: green;
+    }
+
+    .red {
+      color: orange;
+    }
+
+    .info {
+      font-size: 12px;
+      color: #888;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+         <div class="logo">AcademicHub</div>
+        <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+        </div>
+        <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+        
+        </div>
+
+       <!--Botão de 3 riscos-->
+        <button class="hamburger-btn" onclick="openMenuLateral()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </button>
+
+        <!--Menu lateral do botão de 3 riscos-->
+        <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+        <!--Fundo escurecido-->
+        <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+      </header>
+
+  <div class="fundoDasMaterias">
+  <h1 class="titulo">Suas Notas</h1>
+  <div class="materia" onclick="toggleConteudo(this)">Biologia</div>
+  <div class="conteudo">
+    <div class="grades">
+      <div class="grade">
+        <span>1º Trimestre</span>
+        <strong>9.3</strong>
+      </div>
+      <div class="grade">
+        <span>2º Trimestre</span>
+        <strong>-</strong>
+      </div>
+      <div class="absences">
+        <span>Faltas</span>
+        <strong>0</strong>
+      </div>
+    </div>
+    <div class="frequency">
+      <div class="green">27 presenças</div>
+      <div class="red">0 ausências</div>
+      <div>27 aulas</div>
+      <div class="info">Informações até 23/05</div>
+    </div>
+  </div>
+
+  <div class="materia" onclick="toggleConteudo(this)">Geografia</div>
+  <div class="conteudo">
+    
+    <p>Informações de Geografia ainda não disponíveis.</p>
+  </div>
+
+  <div class="materia" onclick="toggleConteudo(this)">História</div>
+  <div class="conteudo">
+    <p>Informações de História ainda não disponíveis.</p>
+  </div>
+
+  <div class="materia" onclick="toggleConteudo(this)">Língua Inglesa</div>
+  <div class="conteudo">
+    <p>Informações de Língua Inglesa ainda não disponíveis.</p>
+  </div>
+
+  <div class="materia" onclick="toggleConteudo(this)">Língua Portuguesa</div>
+  <div class="conteudo">
+    <p>Informações de Língua Portuguesa ainda não disponíveis.</p>
+  </div>
+
+  <div class="materia" onclick="toggleConteudo(this)">Matemática</div>
+  <div class="conteudo">
+    <p>Informações de Matemática ainda não disponíveis.</p>
+  </div>
+  <br><br>
+  </div>
+
+  <script>
+
+ //Código do menu lateral do botão de 3 barras
+        function openMenuLateral() {
+            document.getElementById("menuLateral").style.width = "250px";
+            document.getElementById("overlay").classList.add("show");
+        }
+
+        function closeMenuLateral() {
+            document.getElementById("menuLateral").style.width = "0";
+            document.getElementById("overlay").classList.remove("show");
+        }
+
+        
+ //Funcionalidade para fazer aparecer as informações epecíficas sobre notas etc
+    function toggleConteudo(element) {
+      const conteudo = element.nextElementSibling;
+      conteudo.style.display = conteudo.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

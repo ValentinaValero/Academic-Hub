@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suporte</title>
+  <!--Fonte jaro para a logo do academic hub e biblioteca para os icones da Navbar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+  
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ececec;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /*Apartir daqui css da parte principal da página mesmo*/
+
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .banner-text h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: #f9f9f9;
+      padding: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+    }
+
+    .support-channels {
+      background: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .support-channels h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .support-channels p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+
+    .channels {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .channel {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .channel img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .channel h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+         <div class="logo">AcademicHub</div>
+        <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+        </div>
+        <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+        
+        </div>
+
+       <!--Botão de 3 riscos-->
+        <button class="hamburger-btn" onclick="openMenuLateral()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </button>
+
+        <!--Menu lateral do botão de 3 riscos-->
+        <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+        <!--Fundo escurecido-->
+        <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+      </header>
+
+
+  
+
+  <div class="banner">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Banner">
+    <div class="banner-text">
+      <h1>Como podemos te ajudar?</h1>
+      <p>Selecionamos as perguntas mais frequentes para que solucione suas dúvidas e, se quiser, <br>  fale conosco em um de nossos canais.</p>
+    </div>
+  </div>
+
+  <section class="faq">
+    <h2>Dúvidas frequentes</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Quais as maneiras e formas de se cadastrar no AcademicHub? <span>+</span></div>
+      <div class="faq-answer">Você pode se cadastrar pelo site ou aplicativo preenchendo o formulário de inscrição.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como saber o desempenho do meu filho na escola? <span>+</span></div>
+      <div class="faq-answer">Acesse o portal do aluno para visualizar boletins e relatórios pedagógicos.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">A escola oferece atividades extracurriculares? <span>+</span></div>
+      <div class="faq-answer">Sim, diversas atividades como esportes, música, artes e muito mais.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como entrar em contato com a equipe pedagógica? <span>+</span></div>
+      <div class="faq-answer">Entre em contato pelo e-mail ou telefone disponível na área de contato do site.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Quais os horários de atendimento? <span>+</span></div>
+      <div class="faq-answer">Atendemos de segunda a sexta, das 8h às 17h.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">A escola oferece suporte a alunos com necessidades especiais? <span>+</span></div>
+      <div class="faq-answer">Sim, contamos com equipe especializada para atendimento e suporte inclusivo.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como acompanhar atividades ou eventos que ocorrem na escola? <span>+</span></div>
+      <div class="faq-answer">Acompanhe nossa agenda de eventos e comunicados pelo portal.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como se matricular em alguma escola? <span>+</span></div>
+      <div class="faq-answer">Acesse o site, escolha a unidade desejada e preencha a ficha de matrícula.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como saber se temos uma escola com vaga aberta? <span>+</span></div>
+      <div class="faq-answer">Consulte a disponibilidade de vagas diretamente pelo nosso portal ou entre em contato com a unidade desejada.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como solicitar ajuda caso tenha algum erro em nosso site? <span>+</span></div>
+      <div class="faq-answer">Envie uma mensagem pelo canal de suporte ou utilize o formulário de contato no site.</div>
+    </div>
+
+  </section>
+
+  <section class="support-channels">
+    <h2>CANAL DE SUPORTE</h2>
+    <p>Aqui nos disponibilizamos diferentes canais para que possa ter suas dúvidas respondidas, desta forma podemos nos organizar da melhor forma e ajudar o máximo de pessoas.</p>
+
+    <div class="channels">
+      <div class="channel">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        <h3>WhatsApp</h3>
+        <p>Que tal um bate papo com nosso suporte via WhatsApp</p>
+        <p><strong>(Número)</strong></p>
+      </div>
+
+      <div class="channel">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="E-mail">
+        <h3>E-mail</h3>
+        <p>Não conseguiu falar conosco? Envie um e-mail para nós.</p>
+        <p><strong>(Número)</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+  //Código do menu lateral do botão de 3 barras
+        function openMenuLateral() {
+            document.getElementById("menuLateral").style.width = "250px";
+            document.getElementById("overlay").classList.add("show");
+        }
+
+        function closeMenuLateral() {
+            document.getElementById("menuLateral").style.width = "0";
+            document.getElementById("overlay").classList.remove("show");
+        }
+
+        //Código para exibir mais informações ao clicar nas dúvidas frequentes
+
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
+
+        
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+
+        
+        document.querySelectorAll('.faq-question span').forEach(span => span.textContent = '+');
+
+        if (!isVisible) {
+          answer.style.display = 'block';
+          question.querySelector('span').textContent = '-';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

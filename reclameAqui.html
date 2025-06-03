@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reclame Aqui</title>
+    <!--Fonte jaro para a logo do academic hub e biblioteca para os icones da Navbar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* reset básico pra tirar margens e deixar tudo alinhadinho */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+           background: #222; /* fundão escuro pra destacar o formulário */
+           color: #000;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+
+
+    /* apartir daqui área principal da página */
+    .conteudo {
+      background: #ddd;
+      margin: 20px auto;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 900px;
+    }
+
+    /* formulário lindão */
+    .form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* grupo pra colocar nome e telefone lado a lado */
+    .linha {
+      display: flex;
+      gap: 20px;
+    }
+
+    /* cada caixinha (nome, tel, etc) */
+    .campo {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .campo input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 20px;
+      border: none;
+      background: #d9d9d9; /* cinzinha pra ficar clean */
+      resize: none;
+      font-size: 14px;
+    }
+
+    textarea {
+      height: 150px; /* caixa grandona pra escrever a msg */
+    }
+
+    /* botão estiloso */
+    .botao {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+       background: linear-gradient(to right, #8a0fdc, #c6d42a);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* sobe e faz uma sombrinha */
+    }
+
+    /* msg de "obrigado" escondida no começo */
+    .msg-ok {
+      margin-top: 20px;
+      padding: 15px;
+      background: #c8e6c9;
+      color: #2e7d32;
+      border-radius: 10px;
+      display: none; /* some até enviar */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho ou Navbar-->
+      <header>
+         <div class="logo">AcademicHub</div>
+        <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+        </div>
+        <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+        
+        </div>
+
+       <!--Botão de 3 riscos-->
+        <button class="hamburger-btn" onclick="openMenuLateral()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </button>
+
+        <!--Menu lateral do botão de 3 riscos-->
+        <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+        <!--Fundo escurecido-->
+        <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+      </header>
+
+  <!-- conteúdo principal -->
+  <div class="conteudo">
+    <form id="formulario" class="form">
+      <h1>Reclame Aqui</h1><br>
+
+      <!-- linha com nome e telefone -->
+      <div class="linha">
+        <div class="campo">
+          <label for="nome">NOME</label>
+          <input type="text" id="nome" name="nome">
+        </div>
+        <div class="campo">
+          <label for="telefone">TELEFONE</label>
+          <input type="text" id="telefone" name="telefone">
+        </div>
+      </div>
+
+      <!-- o resto dos campos -->
+      <div class="campo">
+        <label for="email">EMAIL</label>
+        <input type="text" id="email" name="email">
+      </div>
+
+      <div class="campo">
+        <label for="assunto">ASSUNTO</label>
+        <input type="text" id="assunto" name="assunto">
+      </div>
+
+      <div class="campo">
+        <label for="mensagem">MENSAGEM</label>
+        <textarea id="mensagem" name="mensagem"></textarea>
+      </div>
+
+      <!-- botão de enviar -->
+      <button type="submit" class="botao">Enviar Mensagem</button>
+
+      <!-- msg de sucesso -->
+      <div class="msg-ok" id="msg-ok">
+        Obrigado! Recebemos sua mensagem.
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+     //Código do menu lateral do botão de 3 barras
+        function openMenuLateral() {
+            document.getElementById("menuLateral").style.width = "250px";
+            document.getElementById("overlay").classList.add("show");
+        }
+
+        function closeMenuLateral() {
+            document.getElementById("menuLateral").style.width = "0";
+            document.getElementById("overlay").classList.remove("show");
+        }
+        
+    // pegando o form e a div da mensagem
+    const form = document.getElementById('formulario');
+    const msgOk = document.getElementById('msg-ok');
+
+    // quando clicar no botão de enviar
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // impede que a página recarregue
+      msgOk.style.display = 'block'; // mostra a msg de "obrigado"
+      form.reset(); // limpa os campos
+    });
+  </script>
+
+</body>
+</html>

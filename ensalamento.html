@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Página Inicial Escolar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #cfcfcf;
+    }
+
+    header {
+      background: linear-gradient(to right, #8a0fdc, #c6d42a);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      justify-content: space-between;
+      color: white;
+    }
+
+    header .icons i {
+      width: 24px;
+      margin: 0 10px;
+      cursor: pointer;
+
+
+    }
+
+
+    header .icons {
+      margin-right: 80px;
+      margin-left: 20px;
+    }
+
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+    }
+
+    .search-bar input {
+      width: 80%;
+      padding: 5px;
+    }
+
+
+
+
+    .botoesDeRedirecionamento {
+      display: flex;
+      justify-content: center;
+      /* Centraliza os botões */
+      gap: 20px;
+      /* Espaçamento entre eles */
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+
+    .botoesDeRedirecionamento button {
+      background-color: #520a81;
+      width: 150px;
+      height: 40px;
+      font-size: 20px;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+
+    /* Botão de 3 riscos*/
+    .hamburger-btn {
+      position: absolute;
+      top: 10px;
+      right: 40px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger-btn .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #272b64;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+
+    /* Menu lateral do lado direito */
+    .menu-lateral {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #520a81;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      z-index: 1000;
+
+    }
+
+    .menu-lateral a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+
+    }
+
+    .menu-lateral a:hover {
+      background-color: #340752;
+    }
+
+    /* Fundo escurecido */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Apartir daqui configurações da parte principal da tela*/
+
+    .container {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 800px;
+      margin-top: 7%;
+      margin-left: 20%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+    img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      margin-left: 80px;
+    }
+
+    h1,
+    h3 {
+      margin-left: 80px;
+
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      margin-left: 35%;
+    }
+
+    a.button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Botão hambúrguer -->
+  <button class="hamburger-btn" onclick="openMenuLateral()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </button>
+
+  <!-- Menu lateral com nova classe -->
+  <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+  <!-- Fundo escurecido -->
+  <div class="overlay2" id="overlay2" onclick="closeMenuLateral()"></div>
+
+
+
+
+  <header>
+    <div class="logo">AcademicHub</div>
+    <div class="icons">
+      <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>
+      <!-- Redireciona para a tela inicial -->
+      <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+    </div>
+    <div class="search-bar">
+      <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+    </div>
+    <div class="icons">
+      <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+      <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+      <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i>
+      <!-- Redireciona para o perfil -->
+
+    </div>
+
+    <!-- Botão hambúrguer -->
+    <button class="hamburger-btn" onclick="openMenuLateral()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+    <!-- Menu lateral com nova classe -->
+    <div class="menu-lateral" id="menuLateral">
+      <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+      <a href="reclameAqui.html">Reclame Aqui</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="alunosDestaque.html">Alunos Destaque</a>
+      <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+      <a href="creditos.html">Créditos</a>
+    </div>
+
+    <!-- Fundo escurecido -->
+    <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+
+
+
+  </header>
+
+
+
+
+  </div>
+
+  <!--Parte principal da página-->
+
+  <div class="container">
+    <h1>Ensalamento 27/05/2025</h1>
+    <h3>Professor Representante: Guilherme</h3>
+    <h3>Chefe de Turma: Gabriel N6</h3>
+
+
+    <img src="https://i.pinimg.com/474x/e6/92/d2/e692d2424536bb6c92e12bff525d1163.jpg" alt="Imagem do Ensalamento">
+    <br>
+    <a class="button" href="ensalamento.pdf" target="_blank">Visualizar em PDF</a>
+  </div>
+  <br><br><br><br><br><br>
+
+
+  <script>
+
+
+    //Código para abrir o menu lateral ao clicar no botao dos 3 riscos
+    function openMenuLateral() {
+      document.getElementById("menuLateral").style.width = "250px";
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeMenuLateral() {
+      document.getElementById("menuLateral").style.width = "0";
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+
+
+  </script>
+
+
+</body>
+
+</html>

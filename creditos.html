@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademicHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--Fonte jaro para a logo do academic hub e biblioteca para os icones da Navbar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ececec;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /*Apartir daqui configurações principais dessa tela*/
+        /*Parte do José*/
+         
+    .banner-top { /* IMAGEM COM TEXTO EM CIMA */
+      position: relative;
+      width: 100%;
+      max-height: 300px;
+      overflow: hidden;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .banner-top img {
+      width: 100%;
+      display: block;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    /* TEXTO EM CIMA DA IMAGEM */
+    .msg-no-banner {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      margin-bottom: 6%;
+      border-radius: 12px;
+      color: white;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      width: 600px;
+      height: 200px;
+    }
+
+    .msg-no-banner h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 7%;
+    }
+
+    .msg-no-banner p {
+      margin-top: 10px;
+      font-size: 18px;
+      max-width: 400px;
+      margin-left: 17%;
+    }
+
+    /*Parte do Luca*/
+    .container {
+      background-color: #fff;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      font-size: 28px;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+      text-align: center;
+    }
+    .section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .names {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .footer {
+      border-top: 2px solid #000;
+      margin-top: 20px;
+      padding-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+</style>
+</head>
+
+  <!--Navbar-->
+      <header>
+         <div class="logo">AcademicHub</div>
+        <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+        </div>
+        <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+        
+        </div>
+
+       <!--Botão de 3 riscos-->
+        <button class="hamburger-btn" onclick="openMenuLateral()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </button>
+
+        <!--Menu lateral do botão de 3 riscos-->
+        <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+        <!--Fundo escurecido-->
+        <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+      </header>
+
+      <!--Parte do José-->
+       <!-- BANNER COM TEXTO EM CIMA -->
+  <div class="banner-top">
+    <img src='https://i.postimg.cc/C5zYYV48/Design-sem-nome-4.png' alt="Imagem da galera">
+    <div class="msg-no-banner">
+      <h1>Acompanhe os Créditos!</h1>
+      <p>Aqui estão todas as pessoas que foram responsáveis e comprometidas em ajudar o projeto. Obrigado a todos!</p>
+    </div>
+  </div>
+
+  <!--Parte do Luca-->
+   <div class="container">
+
+    <div class="section">
+      <h2>LÍDERES</h2>
+      <div class="names">
+        <span>Leonardo Tavarez Kaudy</span>
+        <span>Gabriel Gareis da Silva</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>GESTORES</h2>
+      <div class="names">
+        <span>Otávio da Costa Maia</span>
+        <span>Nathan de Araújo Bueno</span>
+        <span>Valentina Sofia Hernandez</span>
+        <span>Yasmin Ukrainski Silva</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>OPERADORES</h2>
+      <div class="names">
+        <span>Luca Carnevalli do Prado</span>
+        <span>Humberto de Paula Neto</span>
+        <span>Juan Cesar dos Santos Adao</span>
+        <span>José Felipe Tenorio Fatore</span>
+        <span>Thalita Gonçalves Getter</span>
+        <span>Caio Guimarães Likoski</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      Agradecimento a todos que decidiram apoiar o projeto!
+    </div>
+
+  </div>
+
+      <script>
+        //Código do menu lateral do botão de 3 barras
+        function openMenuLateral() {
+            document.getElementById("menuLateral").style.width = "250px";
+            document.getElementById("overlay").classList.add("show");
+        }
+
+        function closeMenuLateral() {
+            document.getElementById("menuLateral").style.width = "0";
+            document.getElementById("overlay").classList.remove("show");
+        }
+      </script>
+</body>
+</html>

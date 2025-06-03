@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desabafo Anônimo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #353535;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /*Apartir daqui código das partes principais do site*/
+
+  
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .anon-icon img {
+    width: 120px;
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 1rem;
+    color: #ddd;
+  }
+
+  .desabafo-box {
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .desabafo-box textarea {
+    width: 100%;
+    height: 150px;
+    border: none;
+    border-radius: 15px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    resize: none;
+    background-color: #f0f0f0;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .enviar {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .enviar img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    color: #ccc;
+  }
+
+  .mensagem-sucesso {
+    margin-top: 1rem;
+    color: #4CAF50;
+    font-weight: bold;
+    display: none;
+  }
+
+ 
+</style>
+
+<body>
+  <!--Navbar-->
+      <header>
+         <div class="logo">AcademicHub</div>
+        <div class="icons">
+            <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>  <!-- Redireciona para a tela inicial -->
+            <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+        </div>
+        <div class="search-bar">
+            <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+        </div>
+        <div class="icons">
+            <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+            <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+            <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i> <!-- Redireciona para o perfil -->
+        
+        </div>
+
+       <!--Botão de 3 riscos-->
+        <button class="hamburger-btn" onclick="openMenuLateral()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </button>
+
+        <!--Menu lateral do botão de 3 riscos-->
+        <div class="menu-lateral" id="menuLateral">
+          <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+          <a href="noticias.html">Notícias</a>
+          <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+          <a href="reclameAqui.html">Reclame Aqui</a>
+          <a href="suporte.html">Suporte</a>
+          <a href="alunosDestaque.html">Alunos Destaque</a>
+          <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+          <a href="creditos.html">Créditos</a>
+        </div>
+
+        <!--Fundo escurecido-->
+        <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+      </header>
+
+
+  <main>
+    <div class="anon-icon">
+      <img src="https://i.ibb.co/7xkP0hPP/sdfds.png" alt="Anônimo">
+    </div>
+    <h2>Desabafo Anônimo</h2>
+    <div class="desabafo-box">
+      <textarea id="desabafo" placeholder="Desabafe aqui..."></textarea>
+      <button class="enviar" onclick="enviarDesabafo()">
+        <img src="https://i.ibb.co/dsRvWbb1/image.png" alt="enviar">
+      </button>
+    </div>
+    <p class="mensagem-sucesso" id="mensagem">Recebemos seu desabafo</p>
+    <p class="footer-text">
+      Aqui, você pode desabafar e encontrar um espaço seguro para<br>
+      compartilhar seus sentimentos, nada colocado aqui vai ser exposto.
+    </p>
+  </main>
+
+  <script>
+
+   //Código do Menu lateral que abre ao clicar no botão com os 3 riscos
+    function openMenuLateral() {
+      document.getElementById("menuLateral").style.width = "250px";
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeMenuLateral() {
+      document.getElementById("menuLateral").style.width = "0";
+      document.getElementById("overlay").classList.remove("show");
+    }
+
+    //Script para dizer se uma mensagem do desabafo foi envida ou não. Nada demais, não tem back-end então é só uma mensagem de enviado ou erro de enfeite.
+    function enviarDesabafo() {
+      const texto = document.getElementById("desabafo").value.trim();
+      if (texto !== "") {
+        document.getElementById("mensagem").style.display = "block";
+        document.getElementById("desabafo").value = "";
+      } else {
+        alert("ESCREVA ALGO ANTES DE ENVIAR.");
+      }
+    }
+
+  </script>
+</body>
+
+</html>

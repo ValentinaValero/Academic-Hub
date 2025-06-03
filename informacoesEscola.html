@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informações</title>
+  <!--Fonte jaro para a logo do academic hub e biblioteca para os icones da Navbar-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  /*Apartir daqui configurações da Navbar*/
+  header {
+    background: linear-gradient(to right, #8a0fdc, #c6d42a);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+  }
+
+  header .icons i {
+    width: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  header .icons {
+    margin-right: 80px;
+    margin-left: 20px;
+  }
+
+  .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+
+  .search-bar input {
+    width: 80%;
+    padding: 5px;
+  }
+
+  .logo {
+    font-family: 'Jaro', sans-serif;
+    /*Adiciona a fonte Jaro á logo do site*/
+    font-size: 40px;
+    padding-left: 30px;
+  }
+
+  .hamburger-btn {
+    /* Botão de 3 riscos no canto direito */
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #272b64;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .menu-lateral {
+    /* Menu lateral desse mesmo botão */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .menu-lateral a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .menu-lateral a:hover {
+    background-color: #340752;
+  }
+
+  .overlay {
+    /* Fundo escurecido para fechar o menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .titulo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .titulo h1 {
+    font-size: 2rem;
+    color: #1a1a1a;
+  }
+
+  .titulo p {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: bold;
+  }
+
+  .principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .imagem,
+  .conteudo {
+    flex: 1 1 300px;
+  }
+
+  .imagem img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .subtitulo {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .principal {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <!--Navbar-->
+  <header>
+    <div class="logo">AcademicHub</div>
+    <div class="icons">
+      <i class="fas fa-home" alt="Home" onclick="window.location.href='paginaInicial.html'"></i>
+      <!-- Redireciona para a tela inicial -->
+      <i class="fas fa-school" alt="Escola" onclick="window.location.href='informacoesEscola.html'"></i>
+    </div>
+    <div class="search-bar">
+      <input type="text" class="Pesquisar" id="searchInput" placeholder="Pesquisar..." oninput="searchPosts()">
+    </div>
+    <div class="icons">
+      <i class="fas fa-comments" alt="Chat" onclick="window.location.href='chat.html'"></i>
+      <i class="fas fa-bell" alt="Notificações" onclick="window.location.href='notificacoes.html'"></i>
+      <i class="fas fa-user" alt="Perfil" onclick="window.location.href='perfil.html'"></i>
+      <!-- Redireciona para o perfil -->
+
+    </div>
+
+    <!--Botão de 3 riscos-->
+    <button class="hamburger-btn" onclick="openMenuLateral()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+
+    <!--Menu lateral do botão de 3 riscos-->
+    <div class="menu-lateral" id="menuLateral">
+      <a href="javascript:void(0)" onclick="closeMenuLateral()">&times; Fechar</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="desabafoAnonimo.html">Desabafo Anônimo</a>
+      <a href="reclameAqui.html">Reclame Aqui</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="alunosDestaque.html">Alunos Destaque</a>
+      <a href="sobreAcademicHub.html">Sobre o Academic Hub</a>
+      <a href="creditos.html">Créditos</a>
+    </div>
+
+    <!--Fundo escurecido-->
+    <div class="overlay" id="overlay" onclick="closeMenuLateral()"></div>
+  </header>
+
+
+  <div class="container">
+    <div class="titulo">
+      <h1>Colégio Estadual Cívico Militar Yvone Pimentel</h1>
+      <p>Ensino e aprendizado mais integrados!</p>
+    </div>
+
+    <div class="principal">
+      <div class="imagem">
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqvQuU5U1P1S2ohhIBcc7quYKR2iVNiRu88vVX6YohddEFkbNtTUgr8XGVQQjhDsq6FJB0YTd3ZYNXV5uIWcy6-D3lh_5VFXb1XWtPcXCj-z6Am-gx6ezArVgwFM9ROe2KXcW8U=s680-w680-h510-rw"
+          alt="Imagem da escola">
+      </div>
+
+      <div class="conteudo">
+        <div class="subtitulo">Visão Geral:</div>
+        <ul>
+          <li><strong>Localização:</strong>Situada em Curitiba no Bairro do Novo Mundo</li>
+          <li><strong>Objetivo:</strong> Oferecer uma educação de excelência, combinando tradição acadêmica com
+            inovação.</li>
+        </ul>
+
+        <div class="subtitulo">Nossos valores:</div>
+        <ul>
+          <li><strong>Inovação:</strong> Buscamos sempre novas formas de ensino e aprendizagem, utilizando tecnologias e
+            métodos que desafiam o status quo.</li>
+          <li><strong>Excelência:</strong> Compromisso com o alto padrão educacional e o desenvolvimento de
+            profissionais capacitados e éticos.</li>
+          <li><strong>Diversidade:</strong> Valorizamos a pluralidade de ideias, culturas e experiências, promovendo um
+            ambiente inclusivo e respeitoso.</li>
+          <li><strong>Responsabilidade social:</strong> Encorajamos nossos alunos a se envolverem em causas sociais e a
+            contribuírem positivamente para a comunidade e o mundo.</li>
+          <li><strong>Colaboração:</strong> Acreditamos no poder do trabalho em equipe e da troca de conhecimentos entre
+            alunos, professores e a sociedade.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="principal">
+      <div class="conteudo">
+        <div class="subtitulo">Infraestrutura:</div>
+        <ul>
+          <li><strong>Campus moderno:</strong> Instalações de ponta, com salas de aula interativas, laboratórios de
+            pesquisa avançados e espaços de convivência acolhedores.</li>
+          <li><strong>Ambiente estimulante:</strong> Foco em criar um espaço que favoreça a criatividade, o trabalho
+            colaborativo e o aprendizado contínuo.</li>
+        </ul>
+
+        <div class="subtitulo">Currículo e Ensino:</div>
+        <ul>
+          <li><strong>Currículo Flexível:</strong> Áreas de estudo como ciências exatas, humanidades, artes e
+            tecnologia, permitindo que os alunos escolham seu caminho.</li>
+          <li><strong>Professores especializados:</strong> Educadores renomados, comprometidos com a formação integral
+            do aluno, estimulando o pensamento crítico e a resolução de problemas reais.</li>
+          <li><strong>Educação personalizada:</strong> Aulas práticas e teóricas adaptadas às necessidades e interesses
+            dos estudantes.</li>
+        </ul>
+      </div>
+
+      <div class="imagem">
+        <img
+          src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq8Z7M1tGF_61DyezcIbOvBYH97fFf0sCyHjaZXa4_Ncvd6tk3Zhl7QcHu7Tt2VULtazRfuTuneTCQi-aEORiDZ4jxSJWqzKin2Mye1dmlSbL8grnPODcgbc3TthaziaxntcP6Xbg=s680-w680-h510-rw"
+          alt="Imagem da escola">
+      </div>
+    </div>
+  </div>
+  <script>
+
+    //Código do menu lateral do botão de 3 barras
+    function openMenuLateral() {
+      document.getElementById("menuLateral").style.width = "250px";
+      document.getElementById("overlay").classList.add("show");
+    }
+
+    function closeMenuLateral() {
+      document.getElementById("menuLateral").style.width = "0";
+      document.getElementById("overlay").classList.remove("show");
+    }
+  </script>
+
+</body>
+
+</html>
