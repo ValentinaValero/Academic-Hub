@@ -1,0 +1,131 @@
+
+        body { /* Cor de fundo roxa e aplicação da fonte Jaro*/
+            font-family: 'Jaro', sans-serif; 
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgb(138, 15, 220), rgb(57, 7, 73));
+        }
+
+
+
+        /* Metade do fundo amarela, configurações, configurações de seus elementos e de seu alinhamento*/
+         .sidebar { 
+            flex: 1;
+            background: linear-gradient(to bottom, #FFDD00, #FFF389);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0rem;
+            text-align: center;
+        }
+
+        .sidebar h1 {
+            margin-bottom: 0rem;
+        }
+
+        .sidebar p {
+            margin-bottom: 100px;
+            color: #3813DC;
+            
+        }
+
+        .total{ /* É para o fundo amarelo não se distorcer*/
+            padding-top: 130px;
+        }
+
+        .imagemescola{ /* Imagem que está no fundo amarelo*/
+            width: 400px;
+        }
+
+        .cor{ /* Texto de bem-vindo*/
+            margin-top: 100px;
+            color: #3813DC;
+            font-size: 200%;
+            -webkit-text-stroke: 3px #3813DC; /* Efeito bold*/
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .cor2{ /* Texto Academic Hub com borda preta do fundo amarelo*/
+            -webkit-text-stroke: 0.1px black; /* Efeito bold*/
+            font-size: 400%;
+        }
+
+
+
+        /* Bloco branco de Login*/
+        .card { 
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+            height: 300px;
+            text-align: center;
+            margin: 30px;
+            margin-top: 0px;
+        }
+
+        /* Bloco branco de Cadastro*/
+        .card2 { 
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+            height: 370px;
+            text-align: center;
+            margin: 30px;
+            margin-top: -30px;
+        }
+
+        /* Apartir daqui códigos em Comum entre os dois*/
+        .form-group { /* Alinha os inputs*/
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        input { /* Tamanho dos input, estética e mais alinhamento*/
+            width: 92%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+
+        /* Botão de submit dos inputs*/
+        button { 
+            background: #1877f2;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover { 
+            background: #125ec5;
+        }
+
+        
+
+        /* Mensagem de erro ou sucesso do servidor em validar login do JS do Leo*/
+        .message { 
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .error { background: #ffcccc; color: #cc0000; }
+        .success { background: #ccffcc; color: #006600; }
+
+
+
+        .hidden { /* Se tirar isso desconfigura tudo, não tire*/
+            display: none;
+
+        }
+   

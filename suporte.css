@@ -1,0 +1,227 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+  
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ececec;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /*Apartir daqui css da parte principal da página mesmo*/
+
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .banner-text h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: #f9f9f9;
+      padding: 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+    }
+
+    .support-channels {
+      background: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .support-channels h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .support-channels p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+
+    .channels {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .channel {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .channel img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .channel h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+  

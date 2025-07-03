@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cfcfcf;
+  }
+
+  header {
+    background: linear-gradient(to right, #8a0fdc, #c6d42a);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+  }
+
+  header .icons i {
+    width: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+
+
+  }
+
+
+  header .icons {
+    margin-right: 80px;
+    margin-left: 20px;
+  }
+
+  .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+
+  .search-bar input {
+    width: 80%;
+    padding: 5px;
+  }
+
+
+
+
+  .botoesDeRedirecionamento {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os botões */
+    gap: 20px;
+    /* Espaçamento entre eles */
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .botoesDeRedirecionamento button {
+    background-color: #520a81;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+  /* Botão de 3 riscos*/
+  .hamburger-btn {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #272b64;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+
+  /* Menu lateral do lado direito */
+  .menu-lateral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+
+  }
+
+  .menu-lateral a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+
+  }
+
+  .menu-lateral a:hover {
+    background-color: #340752;
+  }
+
+  /* Fundo escurecido */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+
+  /* Apartir daqui configurações da parte principal da tela*/
+
+  .container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 800px;
+    margin-top: 7%;
+    margin-left: 20%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+  img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-left: 80px;
+  }
+
+  h1,
+  h3 {
+    margin-left: 80px;
+
+  }
+
+  a.button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 35%;
+  }
+
+  a.button:hover {
+    background-color: #1d4ed8;
+  }

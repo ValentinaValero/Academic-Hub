@@ -1,0 +1,250 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ececec;
+}
+
+/*Apartir daqui configurações da Navbar*/ 
+header {
+    background: linear-gradient(to right, #8a0fdc, #c6d42a);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+}
+header .icons i {
+    width: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+header .icons{
+    margin-right: 80px;
+    margin-left: 20px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+.search-bar input {
+    width: 80%;
+    padding: 5px;
+}
+
+.logo{
+    font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+    font-size: 40px;
+    padding-left: 30px;
+}
+
+.hamburger-btn { /* Botão de 3 riscos no canto direito */
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #272b64;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.menu-lateral {/* Menu lateral desse mesmo botão */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu-lateral a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+    background-color: #340752;
+}
+
+.overlay {/* Fundo escurecido para fechar o menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/*Apartir daqui configurações da Barra cinza do lado esquerdo*/ 
+.sidebar {
+    width: 200px;
+    background: #ececec;
+    padding: 15px;
+    position: fixed;
+    height: 150%;
+    color: black;
+}
+
+.Redimaterias{
+    background-color: #d2f317;
+    width: 190px;
+    height: 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/*Apartir daqui Código do Leo para o campo de postar posts*/ 
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+/* Estilo para o formulário de postagem */
+#postForm {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#postContent {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os posts dinâmicos */
+.dynamic-post {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: black;
+}
+
+.post-header img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.post-content {
+    padding: 0 10px 10px;
+    color: black;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    font-size: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comments {
+    padding: 0 10px 10px;
+    border-top: 1px solid #eee;
+}
+
+.comments p {
+    margin: 5px 0;
+    color: black;
+    font-size: 14px;
+}
+
+.add-comment {
+    display: flex;
+    border-top: 1px solid #eee;
+    padding: 10px;
+}
+
+.add-comment input {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.add-comment button {
+    background: none;
+    border: none;
+    color: #3897f0;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button {
+    background: none;
+    color: #666;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+    margin-left: auto;
+}
+
+.delete-warning {
+    color: red;
+    display: none;
+    font-size: 12px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+    background: white;
+    border: 1px solid red;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.fundoDoPost{
+    background: linear-gradient(to top, #ffffff, #ececec);
+    background-color: white;
+    height: 600px;
+}

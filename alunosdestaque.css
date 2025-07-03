@@ -1,0 +1,157 @@
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /*Apartir daqui configurações da Navbar*/ 
+        header {
+            background: linear-gradient(to right, #8a0fdc, #c6d42a);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            justify-content: space-between;
+            color: white;
+        }
+        header .icons i {
+            width: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        header .icons{
+            margin-right: 80px;
+            margin-left: 20px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .logo{
+            font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+            font-size: 40px;
+            padding-left: 30px;
+        }
+        
+        .hamburger-btn { /* Botão de 3 riscos no canto direito */
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-btn .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #272b64;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .menu-lateral {/* Menu lateral desse mesmo botão */
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #520a81;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+        .menu-lateral a {
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu-lateral a:hover {
+            background-color: #340752;
+        }
+
+        .overlay {/* Fundo escurecido para fechar o menu */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        .header {
+            background-image: url(https://lh3.googleusercontent.com/gps-cs-s/AC9h4nr_NmVXi1czLB0ttnnm8IChkN_gzgPR3IDqJS7IG-NpXGXnMMXbWKCiXTFqaCzD7YafRdyikX4vHxpiD0DJ_joZLadEVKCRGfExYyJpKE_aVytDm3x5s0Ds1E4rxl7ix_lVwCmgzQ=s680-w680-h510-rw);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .intro {
+            margin-bottom: 2rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .ano {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .nome {
+            margin: 0.2rem 0;
+        }
+    </style>

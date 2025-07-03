@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+
+  .botoesDeRedirecionamento {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os botões */
+    gap: 20px;
+    /* Espaçamento entre eles */
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .botoesDeRedirecionamento button {
+    background-color: #520a81;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+
+
+  /* Botão hambúrguer no canto direito */
+  .hamburger-btn {
+    position: absolute;
+    top: 9px;
+    right: 40px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #272b64;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* Menu lateral do lado direito */
+  .menu-lateral2 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .menu-lateral2 a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .menu-lateral2 a:hover {
+    background-color: #340752;
+  }
+
+  /* Fundo escurecido */
+  .overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+  }
+
+  .overlay2.show {
+    display: block;
+  }
+
+  .logo {
+
+    font-family: 'Jaro', sans-serif;
+    font-size: 40px;
+    padding-left: 30px;
+  }
+
+
+  /* Apartir daqui configurações da parte principal da tela*/
+
+  h1,
+  .textoSuaTurma {
+    margin-left: 120px;
+  }
+
+  .textoSuaTurma {
+    margin-top: 40px;
+  }
+
+
+
+  .retangulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    width: 900px;
+    height: 60px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    margin-left: 120px;
+  }
+
+  .retangulo img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .conteudo {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .texto {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .observacoes {
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    align-self: flex-start;
+  }
+
+  .observacoes:hover {
+    text-decoration: underline;
+  }
+
+  .destaqueDeNumero {
+    font-size: 20px;
+    -webkit-text-stroke: 0.1px black;
+    /* Efeito bold*/
+  }
+
+  b {
+    font-size: 20px;
+  }
+
+  header {
+    background: linear-gradient(to right, #8a0fdc, #c6d42a);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+  }
+
+  header .icons i {
+    width: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+
+  header .icons {
+    margin-right: 80px;
+    margin-left: 20px;
+  }
+
+  .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+
+  .search-bar input {
+    width: 80%;
+    padding: 5px;
+  }
+
+  /* Botão hambúrguer no canto direito */
+  .hamburger-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #272b64;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* Menu lateral do lado direito */
+  .menu-lateral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .menu-lateral a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .menu-lateral a:hover {
+    background-color: #340752;
+  }
+
+  /* Fundo escurecido */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+
+  .logo {
+
+    font-family: 'Jaro', sans-serif;
+    font-size: 40px;
+    padding-left: 30px;
+
+  }
