@@ -4,100 +4,76 @@
             margin: 0;
             display: flex;
             height: 100vh;
-            background: linear-gradient(to bottom, rgb(138, 15, 220), rgb(57, 7, 73));
-        }
-
-
-
-        /* Metade do fundo amarela, configurações, configurações de seus elementos e de seu alinhamento*/
-         .sidebar { 
-            flex: 1;
-            background: linear-gradient(to bottom, #FFDD00, #FFF389);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0rem;
-            text-align: center;
-        }
-
-        .sidebar h1 {
-            margin-bottom: 0rem;
-        }
-
-        .sidebar p {
-            margin-bottom: 100px;
-            color: #3813DC;
-            
-        }
-
-        .total{ /* É para o fundo amarelo não se distorcer*/
-            padding-top: 130px;
-        }
-
-        .imagemescola{ /* Imagem que está no fundo amarelo*/
-            width: 400px;
-        }
-
-        .cor{ /* Texto de bem-vindo*/
-            margin-top: 100px;
-            color: #3813DC;
-            font-size: 200%;
-            -webkit-text-stroke: 3px #3813DC; /* Efeito bold*/
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
-
-        .cor2{ /* Texto Academic Hub com borda preta do fundo amarelo*/
-            -webkit-text-stroke: 0.1px black; /* Efeito bold*/
-            font-size: 400%;
+            background: #171718;
         }
 
 
 
         /* Bloco branco de Login*/
         .card { 
-            background: white;
+            background: #6A0DAD;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 350px;
-            height: 300px;
+            height: 400px;
             text-align: center;
-            margin: 30px;
-            margin-top: 0px;
+            color: #ffff;
+            margin-left: 110%;
+            margin-top: 20%;
+            
         }
+
+        .card a, .card2 a{
+            
+            color: #9BAD0E;
+
+        }
+
+       
+
+        .card img, .card2 img{
+            width: 40%;
+            margin-top: -8%;
+            margin-bottom: -6%;
+            
+        }
+
 
         /* Bloco branco de Cadastro*/
         .card2 { 
-            background: white;
+            background: #6A0DAD;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 350px;
-            height: 370px;
+            height: 450px;
             text-align: center;
-            margin: 30px;
-            margin-top: -30px;
+            color: #ffff;
+            margin-left: 110%;
+            margin-top: 15%;
         }
 
         /* Apartir daqui códigos em Comum entre os dois*/
-        .form-group { /* Alinha os inputs*/
-            margin-bottom: 1rem;
+        .formulario { /* Alinha os inputs*/
+            
             text-align: left;
+        
         }
 
         input { /* Tamanho dos input, estética e mais alinhamento*/
             width: 92%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: none;
             border-radius: 5px;
             margin-top: 8px;
+            background-color: #212022;
+            color: #ffffff;
         }
 
         /* Botão de submit dos inputs*/
         button { 
-            background: #1877f2;
+            background: #9BAD0E;
             color: white;
             width: 100%;
             padding: 12px;
@@ -108,7 +84,7 @@
         }
 
         button:hover { 
-            background: #125ec5;
+            background: #525825;
         }
 
         

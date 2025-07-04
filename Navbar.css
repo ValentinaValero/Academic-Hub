@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #171718;
+}
+
+/*Apartir daqui configurações da Navbar*/ 
+.logo img{
+    width: 80px;
+    margin-top: -10%;
+    margin-bottom: -20%;
+    margin-left: 40%;
+   
+}
+
+header {
+    background-color: #6A0DAD;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+    color: white;
+}
+header .icons i {
+    width: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    
+}
+header .icons{
+    
+    margin-right: 10%;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+.search-bar input {
+    width: 60%;
+    height: 25px;
+    padding: 5px;
+    margin-left: 80px;
+    border-radius: 20px;
+    border: none;
+    background-color: #212022;
+    color: #ffff;
+    padding-left: 20px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.logo{
+    font-family: 'Jaro', sans-serif; /*Adiciona a fonte Jaro á logo do site*/ 
+    font-size: 40px;
+    padding-left: 30px;
+}
+
+.botaoMenu { /* Botão de 3 riscos no canto direito */
+    position: absolute;
+    margin-left: 91%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.botaoMenu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.menu-lateral {/* Menu lateral desse mesmo botão */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #520a81;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu-lateral a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-lateral a:hover {
+    background-color: #340752;
+}
+
+.overlay {/* Fundo escurecido para fechar o menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 999;
+}
+
+.overlay.show {
+    display: block;
+}
+

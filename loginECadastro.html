@@ -14,15 +14,16 @@
     <!-- Tela de Login -->
    <div class="total">
     <div class="card" id="loginCard">
-        <h2>Bem-vindo de volta!</h2>
+        <img src="./Imagens/logo AH.png">
+        <h1>Bem-vindo de volta!</h1>
         <p>Não tem conta? <a href="#" onclick="toggleScreens()">Criar conta</a></p>
         
         <form id="loginForm"> <!-- Bloco Branco do Login-->
-            <div class="form-group"> 
-                <input type="email" id="emailLogin" placeholder="Insira seu email" required>
+            <div class="formulario"> 
+                <input type="email" id="emailLogin" placeholder="CMG ou @escola" required>
             </div>
-            <div class="form-group">
-                <input type="password" id="senhaLogin" placeholder="Sua senha super secreta" required>
+            <div class="formulario">
+                <input type="password" id="senhaLogin" placeholder="Senha" required>
             </div>
             <button type="button" onclick="fazerLogin()">Entrar</button>
         </form>
@@ -31,26 +32,23 @@
      </div>
     </div>
 
-    <!-- Parte do Fundo Amarela -->
-    <div>
-        <img src="./Imagens/Group 116.png">
-    </div>
 
     <!-- Tela de Cadastro -->
      <div class="total">
     <div class="card2 hidden" id="registerCard">
-        <h2>Crie sua conta</h2>
+        <img src="./Imagens/logo AH.png">
+        <h1>Crie sua conta</h1>
         <p>Já tem conta? <a href="#" onclick="toggleScreens()">Fazer login</a></p>
         
         <form id="registerForm"> <!-- Bloco Branco do Cadastro-->
-            <div class="form-group">
+            <div class="formulario">
                 <input type="text" id="nomeCadastro" placeholder="Nome completo" required>
             </div>
-            <div class="form-group">
-                <input type="email" id="emailCadastro" placeholder="Email" required>
+            <div class="formulario">
+                <input type="email" id="emailCadastro" placeholder="CGM ou @escola" required>
             </div>
-            <div class="form-group">
-                <input type="password" id="senhaCadastro" placeholder="Senha difícil" required>
+            <div class="formulario">
+                <input type="password" id="senhaCadastro" placeholder="Senha" required>
             </div>
             <button type="button" onclick="fazerCadastro()">Registrar</button>
         </form>
@@ -58,6 +56,8 @@
         <p id="registerMessage" class="message hidden"></p>
      </div>
     </div>
+    
+    
 
     <!-- Apartir daqui JS do Leonardo-->
     <script>
